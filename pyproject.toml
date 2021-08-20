@@ -1,0 +1,26 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "mcscales_tools"
+authors = [
+    {name = "Zahari Kassabov", email = "zk261@cam.ac.uk"},
+    {name = "Maria Ubiali"},
+    {name = "Cameron Voisey"},
+]
+classifiers = ["License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"]
+dynamic = ["version", "description"]
+
+dependencies = [
+    "numpy ~= 1.21",
+    "pandas ~=1.2",
+    "ruamel.yaml ~=0.15"
+]
+
+[project.urls]
+Home = "https://github.com/Zaharid/mcscales_tools"
+
+[project.scripts]
+mcscales-partition-pdf = "mcscales_tools.partition:main"
+mcscales-theory-driven = "mcscales_tools.theory_driven:main"
