@@ -7,7 +7,7 @@ from .vendor.lhio import new_pdf_from_indexes, SimplePDFWrapper
 from .grouping import drop_bad_combinations
 from .checks import check_is_valid_mcscales, CheckError
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='[%(levelname)s]: %(message)s')
 
 log = logging.getLogger()
 
