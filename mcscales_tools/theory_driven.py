@@ -32,7 +32,7 @@ def process_args():
     )
     parser.add_argument(
         "point_prescription",
-        choices=["3 point", "5 point", "5bar point", "7 point"],
+        choices=["3 point", "5 point", "5bar point", "7 point", "custom"],
         help="Discard replicas according to scale combinations that are"
         "disallowed by the given point prescription.",
     )
@@ -56,6 +56,8 @@ def main():
                 f"Path '{newname}' already exists. Please delete it first."
             )
         log.info(f"Finding replicas in {pdf.name} compatible with '{pp}'")
+        if pp == "custom":
+            raise RuntimeError("Modify the code here to implement custom behaviour")
         indexes = partition_by_scales(pdf, pp)
         if not indexes:
             raise CheckError("No replicas satisfy the constraint")
