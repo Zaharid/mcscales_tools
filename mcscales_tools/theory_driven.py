@@ -1,3 +1,8 @@
+"""Script to obtain LHAPDF grids from an MCscales PDF set, where the PDF
+replicas are selected according to a particular point prescription. For
+example, if '7 point' is chosen, then all replicas with any scale combinations
+where one scale multiplier is 2 and one is 0.5 are discarded.
+"""
 import argparse
 import logging
 import sys
@@ -21,10 +26,7 @@ badscales_dict = {
 
 def process_args():
     parser = argparse.ArgumentParser(
-        description="Script to obtain LHAPDF grids from an MCscales PDF set, where the PDF replicas "
-        "are selected according to a particular point prescription. For example, if "
-        "'7 point' is chosen, then all replicas with any scale combinations where one "
-        "scale multiplier is 2 and one is 0.5 are discarded.\n\n",
+        description=__doc__,
         epilog="Example:\n mcscales-theory-driven /path/to/mcscales_v1 '3 point'",
     )
     parser.add_argument(

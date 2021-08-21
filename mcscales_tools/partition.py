@@ -1,3 +1,19 @@
+"""Script to obtain LHAPDF grids from an MCscales PDF set, where the PDF
+replicas are split by their scale choices. The default behaviour is to split
+the replicas by the factorisation scale only, i.e. three separate PDF sets will
+be generated (one with the central scale, one with the scale halved, and one
+with the scale doubled). To also split the replicas by the renormalisation
+scale of a particular process, one can use the --split_by_ren_scale flag,
+followed by the process whose renormalisation scale is of interest.
+
+For example, to split by both the factorisation scale and the renormalisation
+scale used for top quark data, one would run
+
+
+The processes by which one can select the renormalisation scales are DIS NC,
+DIS CC, DY, JETS and TOP.  The resulting PDF sets are put in your LHAPDF
+path."""
+
 import argparse
 import logging
 import sys
@@ -14,17 +30,8 @@ log = logging.getLogger()
 
 def process_args():
     parser = argparse.ArgumentParser(
-        description="""Script to obtain LHAPDF grids from an MCscales PDF set, where the PDF replicas
-                    are split by their scale choices. The default behaviour is to split the replicas
-                    by the factorisation scale only, i.e. three separate PDF sets will be generated
-                    (one with the central scale, one with the scale halved, and one with the scale
-                    doubled). To also split the replicas by the renormalisation scale of a particular
-                    process, one can use the --split_by_ren_scale flag, followed by the process whose
-                    renormalisation scale is of interest. For example, to split by both the factorisation
-                    scale and the renormalisation scale used for top quark data, one would run
-                    `mcscales-partition-pdf <pdf to split> --split_by_ren_scale TOP`. The processes by
-                    which one can select the renormalisation scales are DIS NC, DIS CC, DY, JETS and TOP.
-                    The resulting PDF sets are put in your LHAPDF path."""
+        description=__doc__,
+        epilog="Example: `mcscales-partition-pdf mcscales_v1/ --split_by_ren_scale TOP`",
     )
     parser.add_argument(
         "pdf", help="The name of the PDF set to split up by scales.",
