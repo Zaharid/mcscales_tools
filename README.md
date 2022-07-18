@@ -1,7 +1,7 @@
 # mcscales-tools
 
 Tools for working with Parton Distribution Functions (PDFs) with scale variation
-information (`MCscales`), presented in Ref. arXiv:XXXXX.
+information (`MCscales`), presented in Ref. arXiv:2207.07616
 `MCscales` grids are Monte Carlo [LHAPDF](https://lhapdf.hepforge.org/) grids
 where each replica has been determined using different assumptions on the
 renormalisation and factorisation scales on the input data.
@@ -217,4 +217,4 @@ mcscales_v1 PDF set, member #84, version 1
 
 ## Citation
 
-Please cite arxiv:XXXXX
+Please cite arxiv:2207.07616
